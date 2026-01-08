@@ -1,0 +1,495 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+    min-height: 98vh;
+  animation: skychange 20s linear infinite;
+}
+
+@keyframes skychange {
+  0% {
+    background: linear-gradient(to bottom, #87ceeb, #e0f6ff);
+  }
+  40% {
+    background: linear-gradient(to bottom, #87ceeb, #e0f6ff);
+  }
+  50% {
+    background: linear-gradient(to bottom, #001848, #0a043c);
+  }
+  90% {
+    background: linear-gradient(to bottom, #001848, #0a043c);
+  }
+  100% {
+    background: linear-gradient(to bottom, #87ceeb, #e0f6ff);
+  }
+}
+
+.sun {
+  width: 4.8rem;
+  height: 4.8rem;
+  background-color: orange;
+  box-shadow: orange 1px 1px 20px 6px;
+  position: absolute;
+  left: 0px;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+  border-radius: 50%;
+}
+.sun {
+  animation: 10s linear 0s infinite normal none running sunmove,
+    20s linear 0s infinite normal none running sunfade;
+}
+
+@keyframes sunmove {
+  0% {
+    transform: translate(0vw, 0vh);
+  }
+  20% {
+    transform: translate(30vw, -30vh);
+  }
+  40% {
+    transform: translate(50vw, -45vh);
+  }
+  60% {
+    transform: translate(70vw, -45vh);
+  }
+  80% {
+    transform: translate(90vw, -30vh);
+  }
+  100% {
+    transform: translate(100vw, 10vh);
+  }
+}
+@keyframes sunfade {
+  0%,
+  40% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+/* moon */
+.moon {
+  width: 4.8rem;
+  height: 4.8rem;
+  background-color: gray;
+  border-radius: 50%;
+  box-shadow: 1px 1px 20px 6px gray;
+  position: absolute;
+  left: 0;
+  top: 80%;
+  transform: translate(50%, 50%);
+  z-index: -2;
+}
+.moon {
+  animation: sunmove 10s linear infinite, moonfade 20s linear infinite;
+  animation-delay: 10s, 0s;
+}
+@keyframes moonfade {
+  0%,
+  40% {
+    opacity: 0;
+  }
+  50%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* ------cloud------- */
+.cloud{
+    position: absolute;
+    left: 30px;
+    top: 139px;
+    height: 100px;
+    width: 300px;
+    border-radius: 50%;
+    background-color: rgb(161, 208, 227);
+    transition-property: width;
+    animation-name: myAnimation;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+}
+.cloud .part1{
+    position: absolute;
+    left: 80px;
+    top: -100px;
+    height: 170px;
+    width: 160px;
+    border-radius: 50%;
+    background-color: rgb(161, 208, 227);
+}
+.cloud .part2{
+    position: absolute;
+    left: -50px;
+    top: -80px;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    background-color:rgb(161, 208, 227);
+}
+
+.cloud1{
+    position: absolute;
+    left: -300px;
+    top: 90px;
+    height: 150px;
+    width: 260px;
+    border-radius: 50%;
+    background-color: rgb(161, 208, 227);
+    transition-property: width;
+    animation-name: myAnimation1;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-delay: 10s;
+}
+.cloud1 .part1{
+    position: absolute;
+    left: 100px;
+    top: -70px;
+    height: 170px;
+    width: 160px;
+    border-radius: 50%;
+    background-color: rgb(161, 208, 227);
+}
+.cloud1 .part2{
+    position: absolute;
+    left: -40px;
+    top: -50px;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    background-color: rgb(161, 208, 227);
+}
+
+@keyframes myAnimation {
+  from {left: 0px;}
+  to {left: 10000px;}
+}
+@keyframes myAnimation1 {
+  from {left: -80px;}
+  to {left: 10800px;}
+}
+
+/* --------------House-------------- */
+.house{
+    position: absolute;
+    bottom: 160px;
+    left: 40%;
+}
+.roof{
+    width: 200px;
+    height: 90px;
+    background-color: brown;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.wall{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    background-color: cadetblue;
+}
+.door {
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+  width: 50px;
+  height: 80px;
+  border: 0.1px solid black;
+  background: #deb887;
+}
+.window{
+    position: absolute;
+    bottom: 130px;
+    right: 32px;
+    height: 40px;
+    width: 35px;
+    background-color:white ;
+    border: solid black 1px;
+    border-radius: 5px;
+}
+
+/* ---------trees------------ */
+.tree {
+  position: absolute;
+  bottom: 5px;
+  left: 320px;
+  width: 40px;
+  height: 90px;
+  background: #8b4513;
+}
+.leaf{
+    height: 80px;
+    width: 80px;
+    background-color: #34ca75;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 60px;
+    /* right: 0px; */
+    left: 17px; 
+}
+.leaf1{
+    height: 80px;
+    width: 80px;
+    background-color: #34ca75;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 60px;
+    right: 17px;
+    /* left: 20px;  */
+}
+.leaf2{
+    height: 80px;
+    width: 80px;
+    background-color: #34ca75;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 115px;
+    /* right: 10px; */
+    left: -20px; 
+}
+/* ------2---------- */
+.tree1 {
+  position: absolute;
+  bottom: 5px;
+  /* left: 0px; */
+  right: 600px;
+  width: 40px;
+  height: 90px;
+  background: #8b4513;
+}
+.tree1 .leaf{
+    height: 80px;
+    width: 80px;
+    background-color: #34ca75;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 60px;
+    /* right: 0px; */
+    left: 17px; 
+}
+.tree1 .leaf1{
+    height: 80px;
+    width: 80px;
+    background-color: #34ca75;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 60px;
+    right: 17px;
+    /* left: 20px;  */
+}
+
+/* ----------------windmill----------- */
+.windmill{
+    position: absolute;
+    bottom: 18px;
+    right: 450px;
+    width: 20px;
+    height: 150px;
+}
+
+/* tower */
+.tower {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  width: 10px;
+  height: 120px;
+  background: #111;
+}
+.rotor {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: #444;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: spin 3s linear infinite;
+}
+.rotor span{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 60px;
+  height: 6px;
+  background: #666;
+  transform-origin: left center;
+}
+.rotor span:nth-child(1){
+    transform: translate(0%, 50%) rotate(0deg);
+}
+.rotor span:nth-child(2){
+    transform: translate(0%, 50%) rotate(90deg);
+}
+.rotor span:nth-child(3){
+    transform: translate(0%, 50%) rotate(180deg);
+}
+.rotor span:nth-child(4){
+    transform: translate(0%, 50%) rotate(270deg);
+}
+@keyframes spin {
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+/* ----------lighting------------ */
+.lightower{
+    position: absolute;
+    height: 150px;
+    width: 7px;
+    background-color: black;
+    bottom: 150px;
+    top: 460px;
+    left: 45px;
+}
+.light{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: yellow;
+    bottom: 140px;
+    left: -11px;
+    animation: blink 1.2s infinite;
+}
+.lightower1{
+    position: absolute;
+    height: 150px;
+    width: 7px;
+    background-color: black;
+    bottom: 150px;
+    top: 460px;
+    left: 480px;
+}
+.lightower1 .light{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: yellow;
+    bottom: 140px;
+    left: -11px;
+}
+.lightower2{
+    position: absolute;
+    height: 150px;
+    width: 7px;
+    background-color: black;
+    bottom: 150px;
+    top: 460px;
+    left: 855px;
+}
+.lightower2 .light{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: yellow;
+    bottom: 140px;
+    left: -11px;
+}
+.lightower3{
+    position: absolute;
+    height: 150px;
+    width: 7px;
+    background-color: black;
+    bottom: 150px;
+    top: 460px;
+    right: 255px;
+}
+.lightower3 .light{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: yellow;
+    bottom: 140px;
+    left: -11px;
+}
+.lightower4{
+    position: absolute;
+    height: 150px;
+    width: 7px;
+    background-color: black;
+    bottom: 150px;
+    top: 460px;
+    left: 45px;
+}
+.lightower4 .light{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: yellow;
+    bottom: 140px;
+    left: -11px;
+}
+
+@keyframes blink {
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+.mountain{
+    position: absolute;
+    right: 240px;
+    bottom: 150px;
+    width: 0;
+    height: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-bottom: 260px solid #2e8b57;
+}
+.mountain2{
+    position: absolute;
+    right: -5px;
+    bottom: 150px;
+    width: 0;
+    height: 0;
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+    border-bottom: 290px solid #34ca75;
+}
+div.greenary{
+    height: 4rem;
+    position: relative;
+    background-color: rgb(21, 192, 21);
+    top: 35rem;
+}
+div.road{
+    height: 10rem;
+    position: relative;
+    background-color: grey;
+    top: 35rem;
+}
+div.line{
+    height: 0.5rem;
+    position: relative;
+    background-color: white;
+    top:5rem;
+} 
+
+
